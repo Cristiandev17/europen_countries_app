@@ -1,8 +1,5 @@
 part of 'countries_bloc.dart';
 
-sealed class CountriesEvent extends Equatable {
-  const CountriesEvent();
+sealed class CountriesEvent {}
 
-  @override
-  List<Object> get props => [];
-}
+class GetCountriesEvent extends CountriesEvent {}
