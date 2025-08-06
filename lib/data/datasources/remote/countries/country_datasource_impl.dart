@@ -14,4 +14,11 @@ class CountryDataSourceImpl implements CountryDataSource {
 
     return (response.data as List).map((e) => CountryModel.fromJson(e)).toList();
   }
+
+  @override
+  Future<CountryModel> getCountry(String name) async {
+    final response = await _dioBase.get(AppConstants.countryEndpoint + name);
+
+    return CountryModel.fromJson(response.data);
+  }
 }

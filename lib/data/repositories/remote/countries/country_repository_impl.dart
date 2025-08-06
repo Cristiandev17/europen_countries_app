@@ -13,4 +13,10 @@ class CountryRepositoryImpl implements CountryRepository {
     final countries = await _countryDataSource.getCountries();
     return countries.map((e) => CountryMapper.toEntity(e)).toList();
   }
+  
+  @override
+  Future<CountryEntity> getCountry(String name) async {
+    final country = await _countryDataSource.getCountry(name);
+    return CountryMapper.toEntity(country);
+  }
 }
