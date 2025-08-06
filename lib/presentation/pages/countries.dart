@@ -2,6 +2,7 @@ import 'package:europen_countries_app/core/constants/app_constants.dart';
 import 'package:europen_countries_app/core/theme/app_colors.dart';
 import 'package:europen_countries_app/core/widgets/custom_card.dart';
 import 'package:europen_countries_app/core/widgets/custom_list_empty.dart';
+import 'package:europen_countries_app/domain/entities/country_entity.dart';
 import 'package:europen_countries_app/presentation/blocs/countries/countries_bloc.dart';
 import 'package:europen_countries_app/presentation/blocs/wish_list/wish_list_country_bloc.dart';
 import 'package:flutter/material.dart';
@@ -51,30 +52,41 @@ class _CountriesScreenState extends State<CountriesScreen> {
                   child:
                       countries.isEmpty
                           ? CustomListEmpty(message: 'No hay paises disponibles', fontSize: 18, color: AppColors.black)
-                          : Center(
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                              child: ListView.builder(
-                                itemCount: countries.length,
-                                itemBuilder: (context, index) {
-                                  final country = countries[index];
-                                  return CustomCard(
-                                    country: country,
-                                    iconTap: Icons.favorite_border_outlined,
-                                    onTap: () {
-                                      context.read<CountriesBloc>().add(GetCountriesByNameEvent(name: country.name));
-                                      context.push(AppConstants.detailCountryRoute);
-                                    },
-                                    onTapIcon: () {
-                                      context.read<CountriesBloc>().add(AddWishListCountryEvent(country: country));
-                                    },
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
+                          : ConuntryList(countries: countries),
                 ),
               ),
+    );
+  }
+}
+
+class ConuntryList extends StatelessWidget {
+  const ConuntryList({super.key, required this.countries});
+
+  final List<CountryEntity> countries;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        child: ListView.builder(
+          itemCount: countries.length,
+          itemBuilder: (context, index) {
+            final country = countries[index];
+            return CustomCard(
+              country: country,
+              iconTap: Icons.favorite_border_outlined,
+              onTap: () {
+                context.read<CountriesBloc>().add(GetCountriesByNameEvent(name: country.name));
+                context.push(AppConstants.detailCountryRoute);
+              },
+              onTapIcon: () {
+                context.read<CountriesBloc>().add(AddWishListCountryEvent(country: country));
+              },
+            );
+          },
+        ),
+      ),
     );
   }
 }
