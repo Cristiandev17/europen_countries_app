@@ -14,4 +14,8 @@ class CountryEntity {
     required this.currency,
     required this.area,
   });
+
+  static CountryEntity empty() {
+    return CountryEntity(name: '', capital: '', flag: '', population: '', currency: '', area: '');
+  }
 }

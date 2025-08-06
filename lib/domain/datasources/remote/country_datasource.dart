@@ -3,5 +3,5 @@ import 'package:europen_countries_app/data/models/country_model.dart';
 abstract class CountryDataSource {
   Future<List<CountryModel>> getCountries();
 
-  Future<CountryModel> getCountry(String name);
+  Future<CountryModel> getDetailCountry(String name);
 }

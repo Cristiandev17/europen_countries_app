@@ -11,6 +11,15 @@ class CountryModel {
       capital = json['capital'][0],
       flag = json['flags']['png'],
       population = json['population'].toString(),
-      currency = json['currencies']?.values.first['symbol'],
+      currency = json['currencies']?.values.first['name'],
       area = json['area'].toString();
+
+  CountryModel({
+    required this.name,
+    required this.capital,
+    required this.flag,
+    required this.population,
+    required this.currency,
+    required this.area,
+  });
 }

@@ -7,4 +7,8 @@ class AppConstants {
 
   // Timeouts
   static const Duration connectTimeout = Duration(seconds: 15);
+
+  //routes
+  static const String homeRoute = '/';
+  static const String detailCountryRoute = '/detail-country';
 }
