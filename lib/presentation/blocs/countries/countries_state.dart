@@ -1,6 +1,6 @@
 part of 'countries_bloc.dart';
 
-enum CountriesStatus { initial, loading, success, failure, consulted, saved }
+enum CountriesStatus { initial, loading, success, failure, consulted, saved, timeout }
 
 class CountriesState extends Equatable {
   final CountriesStatus status;

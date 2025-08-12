@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => WishListCountryBloc(getIt<GetWishListCountryUseCase>(), getIt<DeleteCountryUseCase>())),
       ],
       child: MaterialApp.router(
-        showPerformanceOverlay: true,
         themeMode: ThemeMode.system,
         darkTheme: FlexThemeData.dark(scheme: FlexScheme.shadBlue),
         theme: FlexThemeData.light(scheme: FlexScheme.shadBlue),

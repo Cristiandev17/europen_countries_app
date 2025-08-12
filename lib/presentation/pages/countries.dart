@@ -20,6 +20,10 @@ class _CountriesScreenState extends State<CountriesScreen> {
   @override
   void initState() {
     super.initState();
+    callListContry();
+  }
+
+  void callListContry() {
     context.read<CountriesBloc>().add(GetCountriesEvent());
   }
 
@@ -51,7 +55,12 @@ class _CountriesScreenState extends State<CountriesScreen> {
                   },
                   child:
                       countries.isEmpty
-                          ? CustomListEmpty(message: 'No hay paises disponibles', fontSize: 18, color: AppColors.black)
+                          ? CustomListEmpty(
+                            message: 'No se pudo obtener los paises, intente mas tarde',
+                            fontSize: 18,
+                            color: AppColors.black,
+                            onRetry: () => callListContry(),
+                          )
                           : ConuntryList(countries: countries),
                 ),
               ),

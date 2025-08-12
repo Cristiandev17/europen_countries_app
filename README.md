@@ -1,16 +1,20 @@
 # europen_countries_app
 
-A new Flutter project.
+Aplicación Flutter para consultar, buscar y guardar países europeos en una lista de deseos.
 
-## Getting Started
+## Descripción
 
-This project is a starting point for a Flutter application.
+Este proyecto permite:
+- Consultar la lista de países europeos.
+- Buscar países por nombre.
+- Guardar países en una lista de deseos (wishlist).
+- Mostrar lista de deseos
 
-A few resources to get you started if this is your first Flutter project:
+## Estructura del Proyecto
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- `lib/`: Código fuente principal de la aplicación.
+  - `presentation/blocs/countries/`: Lógica BLoC para la gestión de países.
+  - `core/usecases/countries/`: Casos de uso para operaciones con países.
+  - `domain/entities/`: Entidades del dominio.
+- `test/`: Pruebas unitarias y de widgets.
+- `android/`, `ios/`, `linux/`, `macos/`, `windows/`, `web/`: Soporte multiplataforma.
